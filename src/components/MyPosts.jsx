@@ -4,11 +4,11 @@ import axios from "axios";
 const MyPosts = () => {
   const [posts, setPosts] = useState([]);
   const token = localStorage.getItem("token");
-
+   const backendUrl=`https://capncut-backend-1.onrender.com`
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await axios.get("https://capncut-backend-1.onrender.com/myPosts", {
+        const res = await axios.get(`${backendUrl}/myPosts`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setPosts(res.data);

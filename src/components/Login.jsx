@@ -6,6 +6,7 @@ import { IoIosArrowRoundBack } from "react-icons/io";
 
 const Login = () => {
   const navigate = useNavigate();
+   const backendUrl=`https://capncut-backend-1.onrender.com`
   const [data, setFormData] = useState({
     email: "",
     password: "",
@@ -43,7 +44,7 @@ const Login = () => {
     }
 
     try {
-      const LoginData = await axios.post(`https://capncut-backend-1.onrender.com/loginData`, {
+      const LoginData = await axios.post(`${backendUrl}/loginData`, {
         email: data.email,
         password: data.password,
       });

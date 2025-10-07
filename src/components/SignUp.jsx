@@ -10,7 +10,7 @@ const SignUp = () => {
     email: "",
     password: "",
   });
-
+  const backendUrl=`https://capncut-backend-1.onrender.com`
   // Handles input change
   function handleChange(e) {
     const { name, value } = e.target;
@@ -21,7 +21,7 @@ const SignUp = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const res = await axios.post(`https://capncut-backend-1.onrender.com/signUpData`, data);
+      const res = await axios.post(`${backendUrl}/signUpData`, data);
       if (res.status === 201) {
         toast.success("Your account has been created successfully.");
         navigate("/login");
